@@ -6,9 +6,10 @@ const { deploy } = require("./utils")
 const main = async () => {
     const deployerWallet = ethers.provider.getSigner();
     const deployerWalletAddress = await deployerWallet.getAddress();
-
-    const gigs = await deploy("Project");
-
+    
+    const poetGalleryUserAddress = '';
+    const RoomFactory = await deploy("RoomFactory", [poetGalleryUserAddress]);
+    await RoomFactory.deployed();
 
     console.log(
         " 💾  Artifacts (address, abi, and args) saved to: ",
