@@ -47,7 +47,7 @@
     "deployUser": "hardhat run scripts/deployPoetGalleryUser.js --network maticTestnet",
     "deployRoomFactory": "hardhat run scripts/deployRoomFactory.js --network maticTestnet",
     "deployPoemFactory": "hardhat run scripts/deployPoemFactory.js --network maticTestnet",
-    "deployCollections": "hardhat run scripts/deployCollection.js --network rinkeby",
+    "deployCollections": "hardhat run scripts/deployCollection.js --network maticTestnet",
     "watch": "node scripts/watch.js",
     "accounts": "hardhat accounts",
     "balance": "hardhat balance",
