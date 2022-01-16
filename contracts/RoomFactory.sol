@@ -18,10 +18,25 @@ contract RoomFactory {
         poemFactory = poemFactoryAddress;
     }
 
-    function deployRoom(Shared.Archetype archetype, uint totalParticipants) public {
+    function deployRoom(
+        Shared.Archetype archetype,
+        uint256 totalParticipants,
+        uint256 artwrorkID,
+        string calldata name
+    ) public {
         require(poetGalleryUser.isUser(msg.sender), "User has no account");
 
-        address newRoomAddr = address(new Room(msg.sender, archetype, totalParticipants, address(poetGalleryUser), poemFactory));
+        address newRoomAddr = address(
+            new Room(
+                msg.sender,
+                archetype,
+                artwrorkID,
+                name,
+                totalParticipants,
+                address(poetGalleryUser),
+                poemFactory
+            )
+        );
         rooms.push(newRoomAddr);
         isRoom[newRoomAddr] = true;
 
@@ -30,7 +45,7 @@ contract RoomFactory {
         emit RoomCreated(newRoomAddr);
     }
 
-    function getAllRooms() public view returns(address[] memory) {
+    function getAllRooms() public view returns (address[] memory) {
         return rooms;
     }
 }

@@ -16,12 +16,16 @@ contract Room {
     uint256 public currentParticipantsAmount;
     Shared.Archetype public archetype;
     bool public isClosed;
+    uint public artworkID;
+    string public name;
 
     PoemFactory poem;
 
     constructor(
         address _creator,
         Shared.Archetype _archetype,
+        uint _artworkID,
+        string memory _name,
         uint256 _totalParticipants,
         address _poetGalleryUser,
         address _poem
@@ -31,6 +35,8 @@ contract Room {
         totalParticipants = _totalParticipants;
         poetGalleryUser = PoetGalleryUser(_poetGalleryUser);
         isClosed = false;
+        artworkID = _artworkID;
+        name = _name;
         currentParticipantsAmount = 1;
         poem = PoemFactory(_poem);
     }

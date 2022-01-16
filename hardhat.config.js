@@ -60,6 +60,12 @@ module.exports = {
     //     mnemonic: mnemonic(),
     //   },
     // },
+    rinkeby: {
+      url: 'https://rinkeby.infura.io/v3/89ad963492034a00966fc162b756c9e0',
+      accounts: {
+        mnemonic: mnemonic(),
+      }
+    },
     kovan: {
       url: 'https://kovan.infura.io/v3/779285194bd146b48538d269d1332f20',
       gasPrice: 1000000000,

@@ -6,10 +6,10 @@ const { deploy } = require("./utils")
 const main = async () => {
     const deployerWallet = ethers.provider.getSigner();
     const deployerWalletAddress = await deployerWallet.getAddress();
+    
+    const poemFactory = await deploy("PoemFactory", []);
+    await poemFactory.deployed();
 
-    const PoetGalleryUser = await deploy("PoetGalleryUser");
-    const a = await PoetGalleryUser.deployed();
-    console.log(a.address);
     console.log(
         " 💾  Artifacts (address, abi, and args) saved to: ",
         chalk.blue("packages/hardhat/artifacts/"),

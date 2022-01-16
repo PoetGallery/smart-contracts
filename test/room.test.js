@@ -32,7 +32,7 @@ contract('RoomFactory', function (accounts) {
         before(async function () {
 
             await (await poetGalleryUser.createUser(uri, 1)).wait();
-            const events = await (await roomFactory.deployRoom(2, 2)).wait();
+            const events = await (await roomFactory.deployRoom(2, 2, 1, '')).wait();
             const newRoomAddr = events.events[0].args['roomAddress'];
             expect(events.events[0].event == "RoomCreated").to.be.true;
 
@@ -41,7 +41,7 @@ contract('RoomFactory', function (accounts) {
             room1 = await ethers.getContractAt("Room", newRoomAddr);
 
             await (await poetGalleryUser.connect(user1).createUser(uri, 1)).wait();
-            const events2 = await (await roomFactory.connect(user1).deployRoom(2, 2)).wait();
+            const events2 = await (await roomFactory.connect(user1).deployRoom(2, 2, 1, '')).wait();
 
             const newRoomAddr2 = events2.events[0].args['roomAddress'];
             expect(events2.events[0].event == "RoomCreated").to.be.true;
